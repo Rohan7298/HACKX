@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scooter Details</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin: 40px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .details {
+            margin: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            text-align: left;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .details img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+
+        .details ul li {
+            font-size: 1.2em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .back-btn {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            text-transform: uppercase;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 50px;
+            letter-spacing: 1px;
+        }
+
+        .back-btn:hover {
+            background-color: #34495e;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .details {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Scooter Details</h1>
+    <div class="details">
+        <img id="scooter-image" src="scooter1.jpeg" alt="Scooter">
+        <ul id="scooter-info">
+            <!-- Scooter details will be populated here -->
+        </ul>
+        <button class="back-btn" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        // Function to get the URL query parameter
+        function getQueryParam(param) {
+            let urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Update the page content based on the model selected
+        let model = getQueryParam('model');
+        let scooterInfo = document.getElementById('scooter-info');
+        let scooterImage = document.getElementById('scooter-image');
+
+        if (model === 'model1') {
+            scooterInfo.innerHTML = `
+                <li>Model: Scooter Model 1</li>
+                <li>Price: ₹75,000</li>
+                <li>Range: 100 km</li>
+                <li>Battery: 4 kWh</li>
+                <li>Charging Time: 5 hours</li>
+                <li>Top Speed: 60 km/h</li>`;
+            scooterImage.src = 'scooter1.jpeg';
+        } else if (model === 'model2') {
+            scooterInfo.innerHTML = `
+                <li>Model: Scooter Model 2</li>
+                <li>Price: ₹85,000</li>
+                <li>Range: 120 km</li>
+                <li>Battery: 5 kWh</li>
+                <li>Charging Time: 4.5 hours</li>
+                <li>Top Speed: 65 km/h</li>`;
+            scooterImage.src = 'scooter2.jpeg';
+        } else if (model === 'model3') {
+            scooterInfo.innerHTML = `
+                <li>Model: Scooter Model 3</li>
+                <li>Price: ₹95,000</li>
+                <li>Range: 150 km</li>
+                <li>Battery: 6 kWh</li>
+                <li>Charging Time: 4 hours</li>
+                <li>Top Speed: 70 km/h</li>`;
+            scooterImage.src = 'scooter3.jpeg';
+        }
+
+        // Go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
